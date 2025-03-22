@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Mark Joseph Martinez</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Base Styles -->
+    <style>
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            -webkit-overflow-scrolling: touch;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Mobile-first media queries */
+        @media screen and (max-width: 640px) {
+            html {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (min-width: 641px) and (max-width: 1024px) {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (min-width: 1025px) {
+            html {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<style>
+    /* Animation Keyframes */
+    @keyframes intersectingLines {
+        0% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.1); }
+        100% { transform: rotate(360deg) scale(1); }
+    }
+
+    @keyframes progressGlow {
+        0%, 100% {
+            box-shadow: 
+                0 0 10px #ff1a1a,
+                0 0 20px #ff1a1a,
+                0 0 30px #ff1a1a;
+        }
+        50% {
+            box-shadow: 
+                0 0 15px #ff1a1a,
+                0 0 25px #ff1a1a,
+                0 0 35px #ff1a1a;
+        }
+    }
+
+    @keyframes shimmer {
+        0% { transform: translateX(-100%) skewX(-15deg); }
+        100% { transform: translateX(100%) skewX(-15deg); }
+    }
+
+    @keyframes moveRight {
+        0% { transform: translateX(-100%); opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { transform: translateX(100%); opacity: 0.7; }
+    }
+
+    @keyframes moveLeft {
+        0% { transform: translateX(100%); opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { transform: translateX(-100%); opacity: 0.7; }
+    }
+
+    @keyframes moveDown {
+        0% { transform: translateY(-100%); opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { transform: translateY(100%); opacity: 0.7; }
+    }
+
+    @keyframes moveUp {
+        0% { transform: translateY(100%); opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-100%); opacity: 0.7; }
+    }
+
+    @keyframes glow {
+        0%, 100% {
+            opacity: 0.5;
+            filter: blur(1px);
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            filter: blur(0px);
+            transform: scale(1.02);
+        }
+    }
+
+    @keyframes textGlow {
+        0%, 100% {
+            text-shadow:
+                0 0 20px rgba(255, 26, 26, 0.7),
+                0 0 40px rgba(255, 26, 26, 0.4),
+                0 0 60px rgba(255, 26, 26, 0.2);
+            transform: scale(1);
+        }
+        50% {
+            text-shadow:
+                0 0 10px rgba(255, 26, 26, 0.5),
+                0 0 20px rgba(255, 26, 26, 0.3),
+                0 0 40px rgba(255, 26, 26, 0.1);
+            transform: scale(1.01);
+        }
+    }
+
+    @keyframes cursor {
+        0%, 100% {
+            opacity: 1;
+            box-shadow: 0 0 20px #ff1a1a;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0;
+            box-shadow: none;
+            transform: scale(0.95);
+        }
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg) scale(1); }
+        to { transform: rotate(360deg) scale(1); }
+    }
+
+    @keyframes frameLight {
+        0% {
+            top: 0;
+            left: -25%;
+            width: 25%;
+            height: 2px;
+            transform: translateX(0) scale(1);
+        }
+        24% {
+            top: 0;
+            left: 100%;
+            width: 25%;
+            height: 2px;
+        }
+        25% {
+            top: 0;
+            left: 100%;
+            width: 2px;
+            height: 25%;
+        }
+        49% {
+            top: 100%;
+            left: 100%;
+            width: 2px;
+            height: 25%;
+        }
+        50% {
+            top: 100%;
+            left: 100%;
+            width: 25%;
+            height: 2px;
+        }
+        74% {
+            top: 100%;
+            left: -25%;
+            width: 25%;
+            height: 2px;
+        }
+        75% {
+            top: 100%;
+            left: 0;
+            width: 2px;
+            height: 25%;
+        }
+        99% {
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 25%;
+        }
+        100% {
+            top: 0;
+            left: -25%;
+            width: 25%;
+            height: 2px;
+            transform: translateX(0) scale(1);
+        }
+    }
+
+    @keyframes glitch {
+        0% { transform: translate(0) scale(1); }
+        20% { transform: translate(-2px, 2px) scale(1.01); }
+        40% { transform: translate(-2px, -2px) scale(0.99); }
+        60% { transform: translate(2px, 2px) scale(1.01); }
+        80% { transform: translate(2px, -2px) scale(0.99); }
+        100% { transform: translate(0) scale(1); }
+    }
+
+    @keyframes glitchText {
+        0% {
+            text-shadow: none;
+            transform: translate(0) scale(1);
+        }
+        20% {
+            text-shadow: 
+                -2px 2px #ff1a1a,
+                2px -2px #00ffff;
+            transform: translate(-2px, 2px) scale(1.02);
+        }
+        40% {
+            text-shadow: 
+                2px -2px #ff1a1a,
+                -2px 2px #00ffff;
+            transform: translate(2px, -2px) scale(0.98);
+        }
+        60% {
+            text-shadow: 
+                2px 2px #ff1a1a,
+                -2px -2px #00ffff;
+            transform: translate(2px, 2px) scale(1.02);
+        }
+        80% {
+            text-shadow: 
+                -2px -2px #ff1a1a,
+                2px 2px #00ffff;
+            transform: translate(-2px, -2px) scale(0.98);
+        }
+        100% {
+            text-shadow: none;
+            transform: translate(0) scale(1);
+        }
+    }
+
+    @keyframes headerPulse {
+        0%, 100% {
+            box-shadow: 
+                0 0 15px rgba(255,26,26,0.3),
+                0 0 30px rgba(255,26,26,0.2),
+                inset 0 0 15px rgba(255,26,26,0.3);
+            border-color: rgba(255,26,26,0.3);
+            transform: scale(1);
+        }
+        50% {
+            box-shadow: 
+                0 0 30px rgba(255,26,26,0.5),
+                0 0 60px rgba(255,26,26,0.3),
+                inset 0 0 30px rgba(255,26,26,0.5);
+            border-color: rgba(255,26,26,0.5);
+            transform: scale(1.005);
+        }
+    }
+
+    @keyframes floatingNeonLine {
+        0% {
+            transform: translateY(0) rotate(0deg) scale(1);
+            opacity: 0.3;
+        }
+        50% {
+            transform: translateY(-20px) rotate(180deg) scale(1.2);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(0) rotate(360deg) scale(1);
+            opacity: 0.3;
+        }
+    }
+
+    /* Custom Scrollbar Styles */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 26, 26, 0.05);
+        border-radius: 2px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 26, 26, 0.3);
+        border-radius: 2px;
+        box-shadow: 0 0 10px rgba(255, 26, 26, 0.5);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 26, 26, 0.5);
+        box-shadow: 0 0 15px rgba(255, 26, 26, 0.7);
+    }
+
+    .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 26, 26, 0.3) rgba(255, 26, 26, 0.05);
+    }
+
+    /* Responsive Design Helpers */
+    @media (max-width: 640px) {
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 2px;
+            height: 2px;
+        }
+    }
+</style>
+<body>
+    <div x-data="{ 
+        isMenuOpen: false, 
+        activeTab: 'background',
+        isHovered: null,
+        isGlitching: false,
+        mouseX: 0,
+        mouseY: 0,
+        updateMousePosition(event) {
+            const bounds = event.target.getBoundingClientRect();
+            this.mouseX = (event.clientX - bounds.left - bounds.width/2) / 20;
+            this.mouseY = (event.clientY - bounds.top - bounds.height/2) / 20;
+        },
+        startGlitch() {
+            if (!this.isGlitching) {
+                this.isGlitching = true;
+                setTimeout(() => this.isGlitching = false, 1500);
+            }
+        }
+    }" 
+    x-init="setInterval(() => startGlitch(), 5000)"
+    class="font-[Poppins] text-[#ffe6e6] min-h-screen w-full overflow-x-hidden relative">
+
+        <!-- Enhanced Background Effects -->
+        <div class="fixed inset-0 bg-[#1a0000] w-full min-h-screen" aria-hidden="true">
+            <!-- Base Background -->
+            <div class="absolute inset-0 bg-[#1a0000]"></div>
+
+            <!-- Cyberpunk Grid Pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" 
+                     style="background-image: linear-gradient(#ff1a1a 1px, transparent 1px), 
+                            linear-gradient(90deg, #ff1a1a 1px, transparent 1px);
+                            background-size: clamp(25px, 5vw, 50px) clamp(25px, 5vw, 50px);">
+                </div>
+            </div>
+
+            <!-- Animated Lines -->
+            <div class="absolute inset-0 overflow-hidden">
+                <!-- Horizontal Lines -->
+                <div class="absolute w-[200%] h-[2px] bg-[#ff1a1a]/5 top-[5%] -left-[10%] 
+                          animate-[moveRight_15s_linear_infinite] shadow-[0_0_10px_#ff1a1a]
+                          max-sm:h-[1px]"></div>
+                <div class="absolute w-[150%] h-[1px] bg-[#ff1a1a]/10 top-[15%] -left-[25%] 
+                          animate-[moveLeft_12s_linear_infinite] shadow-[0_0_15px_#ff1a1a]
+                          max-sm:opacity-50"></div>
+                <div class="absolute w-[300%] h-[3px] shadow-[0_0_30px_#ff1a1a] bg-[#ff1a1a]/20 
+                          top-[25%] -left-[100%] animate-[moveRight_20s_linear_infinite]
+                          max-sm:h-[2px]"></div>
+                <div class="absolute w-[180%] h-[1px] bg-[#ff1a1a]/5 top-[35%] -left-[40%] 
+                          animate-[moveLeft_17s_linear_infinite] shadow-[0_0_10px_#ff1a1a]
+                          max-sm:opacity-50"></div>
+                <div class="absolute w-[250%] h-[2px] shadow-[0_0_25px_#ff1a1a] bg-[#ff1a1a]/30 
+                          top-[45%] -left-[75%] animate-[moveRight_14s_linear_infinite]
+                          max-sm:h-[1px]"></div>
+
+                <!-- Vertical Lines -->
+                <div class="absolute h-[200%] w-[2px] bg-[#ff1a1a]/5 left-[10%] -top-[50%] 
+                          animate-[moveDown_15s_linear_infinite] shadow-[0_0_15px_#ff1a1a]
+                          max-sm:w-[1px]"></div>
+                <div class="absolute h-[150%] w-[1px] bg-[#ff1a1a]/10 left-[25%] -top-[25%] 
+                          animate-[moveUp_12s_linear_infinite] shadow-[0_0_10px_#ff1a1a]
+                          max-sm:opacity-50"></div>
+                <div class="absolute h-[300%] w-[3px] shadow-[0_0_30px_#ff1a1a] bg-[#ff1a1a]/20 
+                          left-[40%] -top-[100%] animate-[moveDown_20s_linear_infinite]
+                          max-sm:w-[2px]"></div>
+            </div>
+
+            <!-- Enhanced Glow Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#ff1a1a]/5 via-transparent to-[#1a0000]/20"></div>
+
+            <!-- Particle Effects -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <template x-for="i in 30">
+                    <div class="absolute w-[2px] h-[1px]"
+                         x-bind:style="{
+                             left: Math.random() * 100 + '%',
+                             top: Math.random() * 100 + '%',
+                             transform: `rotate(${Math.random() * 360}deg)`,
+                             animation: `floatingNeonLine ${2 + Math.random() * 3}s linear infinite`,
+                             animationDelay: `${Math.random() * 2}s`,
+                             background: '#ff1a1a',
+                             boxShadow: '0 0 2px #ff1a1a, 0 0 4px #ff1a1a, 0 0 6px #ff1a1a'
+                         }">
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="fixed w-full backdrop-blur-md bg-[#1a0000]/90 z-50 border-b border-[#ff1a1a]/20" 
+             aria-label="Main navigation">
+            <div class="max-w-[1400px] mx-auto px-4 py-4 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="portfolio.html" 
+                   class="text-2xl max-sm:text-xl font-bold text-[#ff1a1a] relative group"
+                   aria-label="Portfolio home">
+                    <span class="animate-[textGlow_4s_ease-in-out_infinite] inline-block">Portfolio</span>
+                    <div class="absolute -inset-1 bg-[#ff1a1a]/20 blur-lg group-hover:bg-[#ff1a1a]/30 
+                              transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="max-sm:hidden flex gap-8 max-lg:gap-6" role="navigation">
+                    <template x-for="(item, index) in [
+                        {name: 'Portfolio', href: 'portfolio.html', current: false},
+                        {name: 'About', href: 'about.html', current: true},
+                        {name: 'Skills', href: 'skills.html', current: false},
+                        {name: 'Projects', href: 'projects.html', current: false},
+                        {name: 'Contact', href: 'contact.html', current: false}
+                    ]">
+                        <a x-bind:href="item.href"
+                           x-bind:class="item.current ? 'text-[#ff1a1a]' : 'text-[#ffe6e6] hover:text-[#ff1a1a]'"
+                           class="relative group overflow-hidden transition-colors duration-300">
+                            <span x-text="item.name"></span>
+                            <div x-bind:class="item.current ? 'translate-x-0' : 'translate-x-[-100%] group-hover:translate-x-0'"
+                                 class="absolute bottom-0 left-0 w-full h-[2px] bg-[#ff1a1a] 
+                                        shadow-[0_0_10px_#ff1a1a,0_0_20px_#ff1a1a] transition-transform duration-500"></div>
+                        </a>
+                    </template>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button x-on:click="isMenuOpen = !isMenuOpen" 
+                        class="sm:hidden relative group p-2" 
+                        aria-expanded="false"
+                        x-bind:aria-expanded="isMenuOpen.toString()"
+                        aria-controls="mobile-menu"
+                        aria-label="Toggle mobile menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         class="h-6 w-6 transform transition-transform duration-300"
+                         x-bind:class="isMenuOpen ? 'rotate-90' : ''"
+                         fill="none" 
+                         viewBox="0 0 24 24" 
+                         stroke="currentColor">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="2" 
+                              d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                    <div class="absolute -inset-2 bg-[#ff1a1a]/20 blur-lg opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+            </div>
+        </nav>
+        <!-- Enhanced Mobile Menu Overlay -->
+<div x-show="isMenuOpen" 
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0 transform translate-x-full"
+     x-transition:enter-end="opacity-100 transform translate-x-0"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100 transform translate-x-0"
+     x-transition:leave-end="opacity-0 transform translate-x-full"
+     class="fixed inset-0 bg-[#1a0000]/95 z-40 sm:hidden backdrop-blur-lg"
+     id="mobile-menu"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Mobile navigation menu">
+
+    <!-- Mobile Menu Background Effects -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <!-- Animated Grid Lines -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" 
+                 style="background-image: linear-gradient(#ff1a1a 0.5px, transparent 0.5px),
+                        linear-gradient(90deg, #ff1a1a 0.5px, transparent 0.5px);
+                        background-size: clamp(20px, 4vw, 30px) clamp(20px, 4vw, 30px);">
+            </div>
+        </div>
+
+        <!-- Floating Particles -->
+        <template x-for="i in 20">
+            <div class="absolute w-[1px] h-[1px]"
+                 x-bind:style="{
+                     left: Math.random() * 100 + '%',
+                     top: Math.random() * 100 + '%',
+                     transform: `scale(${Math.random() * 0.5 + 0.5})`,
+                     animation: `floatingNeonLine ${2 + Math.random() * 2}s linear infinite`,
+                     animationDelay: `${Math.random() * 2}s`,
+                     background: '#ff1a1a',
+                     boxShadow: '0 0 2px #ff1a1a, 0 0 4px #ff1a1a'
+                 }">
+            </div>
+        </template>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <nav class="flex flex-col items-center justify-center min-h-screen px-4 py-8 relative" 
+         aria-label="Mobile navigation">
+        <div class="w-full max-w-sm space-y-6">
+            <template x-for="(item, index) in [
+                {name: 'Portfolio', href: 'portfolio.html', current: false},
+                {name: 'About', href: 'about.html', current: true},
+                {name: 'Skills', href: 'skills.html', current: false},
+                {name: 'Projects', href: 'projects.html', current: false},
+                {name: 'Contact', href: 'contact.html', current: false}
+            ]">
+                <a x-bind:href="item.href"
+                   x-bind:class="item.current ? 'text-[#ff1a1a]' : 'text-[#ffe6e6]'"
+                   class="block w-full text-center text-xl py-4 relative group transition-all duration-300"
+                   x-bind:aria-current="item.current ? 'page' : undefined">
+                    <span class="relative z-10" x-text="item.name"></span>
+                    
+                    <!-- Hover Effect Background -->
+                    <div class="absolute inset-0 bg-[#ff1a1a]/10 scale-x-0 group-hover:scale-x-100 
+                              transition-transform duration-300 origin-left"></div>
+                    
+                    <!-- Current Page Indicator -->
+                    <div x-show="item.current" 
+                         class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-[2px] 
+                                bg-[#ff1a1a] animate-[glow_4s_ease-in-out_infinite]"></div>
+                </a>
+            </template>
+        </div>
+    </nav>
+
+    <!-- Close Button -->
+    <button x-on:click="isMenuOpen = false"
+            class="absolute top-4 right-4 p-2 text-[#ffe6e6] hover:text-[#ff1a1a] 
+                   transition-colors duration-300"
+            aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             class="h-6 w-6" 
+             fill="none" 
+             viewBox="0 0 24 24" 
+             stroke="currentColor">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M6 18L18 6M6 6l12 12">
+            </path>
+        </svg>
+    </button>
+</div>
+
+<!-- Main Content Start -->
+<main class="relative w-full max-w-[1400px] mx-auto px-4 max-sm:px-2 pt-20 pb-8">
+    <!-- Content Frame Container -->
+    <div class="relative w-full min-h-[calc(100vh-theme('spacing.20')-theme('spacing.8'))] max-lg:min-h-fit max-w-full">
+        <!-- Base Layer with Background -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-[rgba(255,26,26,0.1)] to-[rgba(255,26,26,0.05)]"></div>
+            
+            <!-- Responsive Grid Pattern -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNDMuMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjUsMCBMNDguMywxMi41IEw0OC4zLDM3LjUgTDI1LDUwIEwxLjcsMzcuNSBMMS43LDEyLjUgeiBNMjUsMiBMMjUsNDggTTIuNywxMyBMNDcuMywxM00yLjcsMzcgTDQ3LjMsMzciIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjYsMjYsMC4xKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] opacity-20"
+                     style="background-size: clamp(30px, 6vw, 60px) clamp(26px, 5.2vw, 52px)">
+                </div>
+            </div>
+        </div>
+        <!-- Main Frame Border Structure -->
+<div class="absolute inset-0">
+    <!-- Outer Frame with Responsive Clip Path -->
+    <div class="absolute inset-0 border-[2px] border-[rgba(255,26,26,0.1)]" 
+         style="clip-path: polygon(
+             0 clamp(20px, 5vw, 40px), 
+             clamp(20px, 5vw, 40px) 0, 
+             calc(100% - clamp(20px, 5vw, 40px)) 0, 
+             100% clamp(20px, 5vw, 40px), 
+             100% calc(100% - clamp(20px, 5vw, 40px)), 
+             calc(100% - clamp(20px, 5vw, 40px)) 100%, 
+             clamp(20px, 5vw, 40px) 100%, 
+             0 calc(100% - clamp(20px, 5vw, 40px)))">
+    </div>
+
+    <!-- Inner Frame Structure with Responsive Borders -->
+    <div class="absolute inset-6 max-sm:inset-3">
+        <!-- Inner Border Left -->
+        <div class="absolute inset-0 border-l-[clamp(8px,2vw,16px)] border-t-[clamp(2px,1vw,4px)] border-[rgba(255,26,26,0.1)]"></div>
+        <!-- Inner Border Top -->
+        <div class="absolute inset-0 border-r-[clamp(2px,1vw,4px)] border-t-[clamp(8px,2vw,16px)] border-[rgba(255,26,26,0.1)]"></div>
+        <!-- Inner Border Right -->
+        <div class="absolute inset-0 border-r-[clamp(8px,2vw,16px)] border-b-[clamp(2px,1vw,4px)] border-[rgba(255,26,26,0.1)]"></div>
+        <!-- Inner Border Bottom -->
+        <div class="absolute inset-0 border-l-[clamp(2px,1vw,4px)] border-b-[clamp(8px,2vw,16px)] border-[rgba(255,26,26,0.1)]"></div>
+
+        <!-- Responsive Inner Frame Lines -->
+        <div class="absolute top-[clamp(20px,5vw,40px)] left-[clamp(20px,5vw,40px)] w-[clamp(40px,10vw,80px)] h-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        <div class="absolute top-[clamp(20px,5vw,40px)] right-[clamp(20px,5vw,40px)] w-[clamp(40px,10vw,80px)] h-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        <div class="absolute bottom-[clamp(20px,5vw,40px)] left-[clamp(20px,5vw,40px)] w-[clamp(40px,10vw,80px)] h-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        <div class="absolute bottom-[clamp(20px,5vw,40px)] right-[clamp(20px,5vw,40px)] w-[clamp(40px,10vw,80px)] h-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        
+        <div class="absolute left-[clamp(20px,5vw,40px)] top-[clamp(20px,5vw,40px)] h-[clamp(40px,10vw,80px)] w-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        <div class="absolute right-[clamp(20px,5vw,40px)] top-[clamp(20px,5vw,40px)] h-[clamp(40px,10vw,80px)] w-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        <div class="absolute left-[clamp(20px,5vw,40px)] bottom-[clamp(20px,5vw,40px)] h-[clamp(40px,10vw,80px)] w-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+        <div class="absolute right-[clamp(20px,5vw,40px)] bottom-[clamp(20px,5vw,40px)] h-[clamp(40px,10vw,80px)] w-[3px] bg-[rgba(255,26,26,0.3)]"></div>
+    </div>
+
+    <!-- Responsive Corner Decorations -->
+    <template x-for="corner in ['top-left', 'top-right', 'bottom-left', 'bottom-right']">
+        <div x-bind:class="{
+            'top-[-8px] left-[-8px]': corner === 'top-left',
+            'top-[-8px] right-[-8px]': corner === 'top-right',
+            'bottom-[-8px] left-[-8px]': corner === 'bottom-left',
+            'bottom-[-8px] right-[-8px]': corner === 'bottom-right'
+        }" class="absolute w-[clamp(75px,15vw,150px)] h-[clamp(75px,15vw,150px)]">
+            <!-- Corner Border -->
+            <div x-bind:class="{
+                'border-l-[8px] border-t-[8px]': corner === 'top-left',
+                'border-r-[8px] border-t-[8px]': corner === 'top-right',
+                'border-l-[8px] border-b-[8px]': corner === 'bottom-left',
+                'border-r-[8px] border-b-[8px]': corner === 'bottom-right'
+            }" class="absolute inset-0 border-[#ff1a1a] shadow-[0_0_10px_#ff1a1a,0_0_20px_#ff1a1a]"></div>
+
+            <!-- Corner Lines -->
+            <div x-bind:class="{
+                'top-[20px] left-[20px]': corner === 'top-left',
+                'top-[20px] right-[20px]': corner === 'top-right',
+                'bottom-[20px] left-[20px]': corner === 'bottom-left',
+                'bottom-[20px] right-[20px]': corner === 'bottom-right'
+            }" class="absolute w-[clamp(20px,5vw,40px)] h-[2px] bg-[rgba(255,26,26,0.3)]"></div>
+
+            <div x-bind:class="{
+                'top-[20px] left-[20px]': corner === 'top-left',
+                'top-[20px] right-[20px]': corner === 'top-right',
+                'bottom-[20px] left-[20px]': corner === 'bottom-left',
+                'bottom-[20px] right-[20px]': corner === 'bottom-right'
+            }" class="absolute w-[2px] h-[clamp(20px,5vw,40px)] bg-[rgba(255,26,26,0.3)]"></div>
+
+            <!-- Corner Accent -->
+            <div x-bind:class="{
+                'top-[15px] left-[15px]': corner === 'top-left',
+                'top-[15px] right-[15px]': corner === 'top-right',
+                'bottom-[15px] left-[15px]': corner === 'bottom-left',
+                'bottom-[15px] right-[15px]': corner === 'bottom-right'
+            }" class="absolute w-[8px] h-[8px] border-[2px] border-[rgba(255,26,26,0.3)]"></div>
+
+            <!-- Hexagonal Decoration -->
+            <div x-bind:class="{
+                'top-[10px] left-[10px]': corner === 'top-left',
+                'top-[10px] right-[10px]': corner === 'top-right',
+                'bottom-[10px] left-[10px]': corner === 'bottom-left',
+                'bottom-[10px] right-[10px]': corner === 'bottom-right'
+            }" class="absolute w-[clamp(15px,4vw,30px)] h-[clamp(15px,4vw,30px)]"
+                style="clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); 
+                       background: rgba(255,26,26,0.1)">
+            </div>
+        </div>
+    </template>
+
+    <!-- Scanning Lines Animation -->
+    <div class="absolute inset-[1px] overflow-hidden" 
+         style="clip-path: polygon(
+             0 clamp(20px, 5vw, 40px), 
+             clamp(20px, 5vw, 40px) 0, 
+             calc(100% - clamp(20px, 5vw, 40px)) 0, 
+             100% clamp(20px, 5vw, 40px), 
+             100% calc(100% - clamp(20px, 5vw, 40px)), 
+             calc(100% - clamp(20px, 5vw, 40px)) 100%, 
+             clamp(20px, 5vw, 40px) 100%, 
+             0 calc(100% - clamp(20px, 5vw, 40px)))">
+        
+        <template x-for="(delay, index) in [0, 1, 2, 3]">
+            <div class="absolute"
+                 x-bind:style="{
+                     animation: `projectBorderScan 4s linear infinite ${delay}s`,
+                     top: index < 2 ? '0' : 'auto',
+                     bottom: index >= 2 ? '0' : 'auto',
+                     left: [0, 3].includes(index) ? '0' : 'auto',
+                     right: [1, 2].includes(index) ? '0' : 'auto',
+                     width: [0, 2].includes(index) ? '25%' : '8px',
+                     height: [0, 2].includes(index) ? '8px' : '25%',
+                     background: [0, 2].includes(index) 
+                         ? 'linear-gradient(to right, #ff1a1a, rgba(255,26,26,0.3))'
+                         : 'linear-gradient(to bottom, #ff1a1a, rgba(255,26,26,0.3))',
+                     boxShadow: '0 0 10px #ff1a1a, 0 0 20px #ff1a1a'
+                 }">
+            </div>
+        </template>
+    </div>
+    <!-- Main Content Container -->
+<div class="absolute inset-[32px] max-sm:inset-[16px] bg-[#1a0000]/90" 
+     style="clip-path: polygon(
+         0 clamp(15px, 4vw, 30px), 
+         clamp(15px, 4vw, 30px) 0, 
+         calc(100% - clamp(15px, 4vw, 30px)) 0, 
+         100% clamp(15px, 4vw, 30px), 
+         100% calc(100% - clamp(15px, 4vw, 30px)), 
+         calc(100% - clamp(15px, 4vw, 30px)) 100%, 
+         clamp(15px, 4vw, 30px) 100%, 
+         0 calc(100% - clamp(15px, 4vw, 30px)))">
+
+    <!-- Header Section -->
+    <div class="relative w-full mb-8 max-sm:mb-4 p-8 max-sm:p-4">
+        <!-- Pulsing Header Container -->
+        <div class="relative bg-[#1a0000]/90 p-6 max-sm:p-4 border border-[#ff1a1a]/30 
+                    animate-[headerPulse_4s_ease-in-out_infinite]">
+            
+            <!-- Animated Border Lines -->
+            <div class="absolute inset-[1px] overflow-hidden">
+                <template x-for="(delay, index) in [0, 3, 6, 9]">
+                    <div class="absolute w-[25%] h-[2px] bg-[#ff1a1a] 
+                              shadow-[0_0_15px_#ff1a1a,0_0_30px_#ff1a1a]"
+                         x-bind:style="{
+                             animation: `frameLight 12s linear infinite ${delay}s`
+                         }">
+                    </div>
+                </template>
+            </div>
+
+            <!-- Header Content -->
+            <div class="relative w-full p-8 max-sm:p-4">
+                <p class="text-[#ff1a1a] mb-4 text-base max-sm:text-sm 
+                          animate-[textGlow_4s_ease-in-out_infinite]">
+                    Who I Am
+                </p>
+                <div class="relative">
+                    <!-- Main Title with Glitch Effect -->
+                    <h1 id="about-heading" 
+                        class="text-5xl max-lg:text-4xl max-sm:text-3xl font-bold text-[#ffe6e6] 
+                               relative z-10 tracking-tight"
+                        x-bind:class="{ 'animate-[glitchText_0.5s_ease-in-out]': isGlitching }">
+                        Mark Joseph Martinez
+                    </h1>
+
+                    <!-- Glitch Layers -->
+                    <h1 class="absolute top-0 left-0 text-5xl max-lg:text-4xl max-sm:text-3xl 
+                             font-bold text-[#ff1a1a] w-full opacity-0"
+                        x-bind:class="{ 'animate-[glitchClip_0.5s_ease-in-out]': isGlitching, 
+                                      'opacity-100': isGlitching }"
+                        aria-hidden="true">
+                        Mark Joseph Martinez
+                    </h1>
+                    <h1 class="absolute top-0 left-0 text-5xl max-lg:text-4xl max-sm:text-3xl 
+                             font-bold text-[#00ffff] w-full opacity-0"
+                        x-bind:class="{ 'animate-[glitchClip_0.5s_ease-in-out_0.1s]': isGlitching, 
+                                      'opacity-100': isGlitching }"
+                        aria-hidden="true">
+                        Mark Joseph Martinez
+                    </h1>
+
+                    <!-- Glitch Effect Overlay -->
+                    <div class="absolute inset-0 bg-[#ff1a1a]/10 opacity-0"
+                         x-bind:class="{ 'animate-[glitchClip_0.5s_ease-in-out_0.2s]': isGlitching, 
+                                       'opacity-100': isGlitching }">
+                    </div>
+
+                    <!-- Animated Underline -->
+                    <div class="mt-4 h-[2px] w-1/3 max-sm:w-1/2 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#ff1a1a]/50 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#ff1a1a] to-transparent 
+                                  animate-[glow_4s_ease-in-out_infinite] opacity-50"></div>
+                        <div class="absolute inset-0 w-1/4 h-full bg-[#ff1a1a] 
+                                  animate-[moveRight_2s_linear_infinite]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two Column Container -->
+    <div class="flex flex-col lg:flex-row gap-8 max-lg:gap-6 px-8 max-sm:px-4">
+        <!-- Left Column - Profile Card -->
+        <div class="flex-1 min-w-0">
+            <div class="relative w-full bg-[#1a0000]/90 p-6 max-sm:p-4 
+                      border border-[#ff1a1a]/30 rounded-sm">
+                <!-- Profile Card Frame -->
+                <div class="absolute inset-0">
+                    <div class="absolute inset-0 border-[2px] border-[rgba(255,26,26,0.1)]" 
+                         style="clip-path: polygon(
+                             0 clamp(10px, 3vw, 20px), 
+                             clamp(10px, 3vw, 20px) 0, 
+                             calc(100% - clamp(10px, 3vw, 20px)) 0, 
+                             100% clamp(10px, 3vw, 20px), 
+                             100% calc(100% - clamp(10px, 3vw, 20px)), 
+                             calc(100% - clamp(10px, 3vw, 20px)) 100%, 
+                             clamp(10px, 3vw, 20px) 100%, 
+                             0 calc(100% - clamp(10px, 3vw, 20px)))">
+                    </div>
+
+                    <!-- Corner Decorations -->
+                    <template x-for="corner in ['top-left', 'top-right', 'bottom-left', 'bottom-right']">
+                        <div x-bind:class="{
+                            'top-[-4px] left-[-4px]': corner === 'top-left',
+                            'top-[-4px] right-[-4px]': corner === 'top-right',
+                            'bottom-[-4px] left-[-4px]': corner === 'bottom-left',
+                            'bottom-[-4px] right-[-4px]': corner === 'bottom-right'
+                        }" class="absolute w-[40px] h-[40px] max-sm:w-[30px] max-sm:h-[30px]">
+                            <div x-bind:class="{
+                                'border-l-[2px] border-t-[2px]': corner === 'top-left',
+                                'border-r-[2px] border-t-[2px]': corner === 'top-right',
+                                'border-l-[2px] border-b-[2px]': corner === 'bottom-left',
+                                'border-r-[2px] border-b-[2px]': corner === 'bottom-right'
+                            }" class="absolute inset-0 border-[#ff1a1a]/30"></div>
+                        </div>
+                    </template>
+
+                    <!-- Scanning Lines -->
+                    <div class="absolute inset-[1px] overflow-hidden">
+                        <template x-for="(delay, index) in [0, 3, 6, 9]">
+                            <div class="absolute w-[25%] h-[2px] bg-[#ff1a1a] 
+                                      shadow-[0_0_15px_#ff1a1a,0_0_30px_#ff1a1a]"
+                                 x-bind:style="{
+                                     animation: `frameLight 12s linear infinite ${delay}s`
+                                 }">
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Profile Content -->
+                <div class="relative z-10 space-y-6">
+                    <p class="text-[#ff8080] leading-relaxed text-base max-sm:text-sm">
+                        A passionate BSIT student and AI enthusiast from Pamantasan ng Lungsod ng San Pablo, 
+                        dedicated to revolutionizing educational technology through innovative solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                      shadow-[0_0_10px_#ff1a1a]"></div>
+                            <span class="text-[#ff8080] text-sm">BSIT Student</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                      shadow-[0_0_10px_#ff1a1a]"></div>
+                            <span class="text-[#ff8080] text-sm">Team PABEEGUT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Column - Tabbed Content -->
+<div class="flex-1 min-w-0 h-full">
+     <div class="relative w-full h-full bg-[#1a0000]/90 border border-[#ff1a1a]/30 rounded-sm overflow-hidden">
+        <!-- Tabbed Content Frame -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 border-[2px] border-[rgba(255,26,26,0.1)]" 
+                 style="clip-path: polygon(
+                     0 clamp(10px, 3vw, 20px), 
+                     clamp(10px, 3vw, 20px) 0, 
+                     calc(100% - clamp(10px, 3vw, 20px)) 0, 
+                     100% clamp(10px, 3vw, 20px), 
+                     100% calc(100% - clamp(10px, 3vw, 20px)), 
+                     calc(100% - clamp(10px, 3vw, 20px)) 100%, 
+                     clamp(10px, 3vw, 20px) 100%, 
+                     0 calc(100% - clamp(10px, 3vw, 20px)))">
+            </div>
+
+            <!-- Corner Decorations -->
+            <template x-for="corner in ['top-left', 'top-right', 'bottom-left', 'bottom-right']">
+                <div x-bind:class="{
+                    'top-[-4px] left-[-4px]': corner === 'top-left',
+                    'top-[-4px] right-[-4px]': corner === 'top-right',
+                    'bottom-[-4px] left-[-4px]': corner === 'bottom-left',
+                    'bottom-[-4px] right-[-4px]': corner === 'bottom-right'
+                }" class="absolute w-[40px] h-[40px] max-sm:w-[30px] max-sm:h-[30px]">
+                    <div x-bind:class="{
+                        'border-l-[2px] border-t-[2px]': corner === 'top-left',
+                        'border-r-[2px] border-t-[2px]': corner === 'top-right',
+                        'border-l-[2px] border-b-[2px]': corner === 'bottom-left',
+                        'border-r-[2px] border-b-[2px]': corner === 'bottom-right'
+                    }" class="absolute inset-0 border-[#ff1a1a]/30"></div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="relative z-10 flex flex-col h-full">
+            <!-- Tab Buttons -->
+             <div class="flex border-b border-[#ff1a1a]/20 bg-[#1a0000]/90 backdrop-blur-sm z-20 flex-shrink-0">
+        <template x-for="(tab, index) in [
+            {id: 'background', label: 'Background'},
+            {id: 'education', label: 'Education'},
+            {id: 'goals', label: 'Goals'}
+        ]">
+                    <button x-on:click="activeTab = tab.id"
+                            x-bind:class="{
+                                'bg-[#ff1a1a]/10': activeTab === tab.id,
+                                'hover:bg-[#ff1a1a]/5': activeTab !== tab.id
+                            }"
+                            class="flex-shrink-0 px-6 max-sm:px-4 py-4 max-sm:py-3 text-[#ff8080] 
+                                   transition-colors duration-300 relative focus:outline-none 
+                                   focus:ring-2 focus:ring-[#ff1a1a]/50 focus:ring-offset-0"
+                            x-bind:aria-selected="activeTab === tab.id"
+                            role="tab">
+                        <span x-text="tab.label"></span>
+                        <div x-show="activeTab === tab.id"
+                             class="absolute bottom-0 left-0 w-full h-[2px] bg-[#ff1a1a] 
+                                    shadow-[0_0_10px_#ff1a1a,0_0_20px_#ff1a1a]"></div>
+                    </button>
+                </template>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="flex-1 overflow-y-auto custom-scrollbar">
+              <div class="p-6 max-sm:p-4">
+                <!-- Background Tab -->
+                <div x-show="activeTab === 'background'"
+                         x-transition:enter="transition ease-out duration-200"
+                         x-transition:enter-start="opacity-0 transform translate-y-2"
+                         x-transition:enter-end="opacity-100 transform translate-y-0"
+                         class="space-y-6">
+                    <h2 class="text-2xl max-sm:text-xl font-bold text-[#ff4d4d] mb-4">
+                        Professional Background
+                    </h2>
+                    <p class="text-[#ff8080] leading-relaxed text-base max-sm:text-sm">
+                        As the lead programmer of team PABEEGUT, I specialize in developing AI-powered 
+                        solutions for educational enhancement. My focus lies in creating intuitive and 
+                        accessible technology that transforms how students learn and prepare for their future.
+                    </p>
+                    <p class="text-[#ff8080] leading-relaxed text-base max-sm:text-sm">
+                        Currently working on an innovative system for PLSP nursing students to revolutionize 
+                        their pre-board exam preparation through AI-driven solutions. This project aims to:
+                    </p>
+                    <ul class="space-y-3">
+                        <template x-for="item in [
+                            'Streamline exam preparation processes',
+                            'Implement AI-based learning algorithms',
+                            'Enhance student performance tracking'
+                        ]">
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                          shadow-[0_0_10px_#ff1a1a] flex-shrink-0"></div>
+                                <span class="text-[#ff8080] text-base max-sm:text-sm" x-text="item"></span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+                <!-- Education Tab -->
+                <div x-show="activeTab === 'education'"
+                         x-transition:enter="transition ease-out duration-200"
+                         x-transition:enter-start="opacity-0 transform translate-y-2"
+                         x-transition:enter-end="opacity-100 transform translate-y-0"
+                         class="space-y-6">
+                    <h2 class="text-2xl max-sm:text-xl font-bold text-[#ff4d4d] mb-4">
+                        Educational Journey
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="relative pl-6">
+                            <div class="absolute left-0 top-2 w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                      shadow-[0_0_10px_#ff1a1a]"></div>
+                            <h3 class="text-[#ffe6e6] font-bold text-lg max-sm:text-base">
+                                Bachelor of Science in Information Technology
+                            </h3>
+                            <p class="text-[#ff8080] text-base max-sm:text-sm">
+                                Pamantasan ng Lungsod ng San Pablo
+                            </p>
+                            <p class="text-[#ff8080] text-sm max-sm:text-xs">2021 - Present</p>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="text-[#ffe6e6] font-semibold mb-3 text-base max-sm:text-sm">
+                                Achievements
+                            </h4>
+                            <ul class="space-y-3">
+                                <template x-for="achievement in [
+                                    'Dean\'s Lister (2021-Present)',
+                                    'IT Society Active Member',
+                                    'Lead Developer - Capstone Project'
+                                ]">
+                                    <li class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                                  shadow-[0_0_10px_#ff1a1a] flex-shrink-0"></div>
+                                        <span class="text-[#ff8080] text-base max-sm:text-sm" 
+                                              x-text="achievement"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Goals Tab -->
+                <div x-show="activeTab === 'goals'"
+                         x-transition:enter="transition ease-out duration-200"
+                         x-transition:enter-start="opacity-0 transform translate-y-2"
+                         x-transition:enter-end="opacity-100 transform translate-y-0"
+                         class="space-y-6">
+                    <h2 class="text-2xl max-sm:text-xl font-bold text-[#ff4d4d] mb-4">Future Goals</h2>
+                    <div class="space-y-8 max-sm:space-y-6">
+                        <!-- Short-term Goals Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-[#ffe6e6] font-semibold text-lg max-sm:text-base">
+                                Short-term Goals
+                            </h3>
+                            <ul class="space-y-3">
+                                <template x-for="goal in [
+                                    'Complete the AI-driven educational platform for nursing students',
+                                    'Enhance system features based on user feedback'
+                                ]">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                                  shadow-[0_0_10px_#ff1a1a] flex-shrink-0 mt-2"></div>
+                                        <span class="text-[#ff8080] text-base max-sm:text-sm" 
+                                              x-text="goal"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+
+                        <!-- Long-term Vision Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-[#ffe6e6] font-semibold text-lg max-sm:text-base">
+                                Long-term Vision
+                            </h3>
+                            <ul class="space-y-3">
+                                <template x-for="vision in [
+                                    'Expand the platform to support multiple educational disciplines',
+                                    'Establish partnerships with educational institutions'
+                                ]">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-[#ff1a1a] rounded-full 
+                                                  shadow-[0_0_10px_#ff1a1a] flex-shrink-0 mt-2"></div>
+                                        <span class="text-[#ff8080] text-base max-sm:text-sm" 
+                                              x-text="vision"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Enhanced Background Particles -->
+<div class="fixed inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute inset-0 overflow-hidden">
+        <template x-for="i in 30">
+            <div class="absolute w-[2px] h-[1px]"
+                 x-bind:style="{
+                     left: Math.random() * 100 + '%',
+                     top: Math.random() * 100 + '%',
+                     transform: `rotate(${Math.random() * 360}deg) scale(${0.5 + Math.random() * 0.5})`,
+                     animation: `floatingNeonLine ${2 + Math.random() * 3}s linear infinite`,
+                     animationDelay: `${Math.random() * 2}s`,
+                     background: '#ff1a1a',
+                     boxShadow: '0 0 2px #ff1a1a, 0 0 4px #ff1a1a, 0 0 6px #ff1a1a'
+                 }">
+            </div>
+        </template>
+    </div>
+</div>
+
+<!-- Accessibility Skip Link (hidden visually but available for screen readers) -->
+<a href="#main-content" 
+   class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 
+          focus:z-50 focus:p-4 focus:bg-[#1a0000] focus:text-[#ff1a1a] 
+          focus:outline-none focus:ring-2 focus:ring-[#ff1a1a]">
+    Skip to main content
+</a>
+
+    </div>
+</body>
+</html>

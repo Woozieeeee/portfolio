@@ -1,0 +1,72 @@
+/* Custom animations and styles */
+
+/* Frame light animation */
+@keyframes frameLight {
+  0% {
+    top: 0;
+    left: -30%;
+  }
+  25% {
+    top: 100%;
+    left: 100%;
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+  }
+  75% {
+    top: 0;
+    left: 100%;
+  }
+  100% {
+    top: 0;
+    left: -30%;
+  }
+}
+
+.frame-light-1 {
+  animation: frameLight 12s linear infinite;
+}
+
+.frame-light-2 {
+  animation: frameLight 12s linear infinite 3s;
+}
+
+.frame-light-3 {
+  animation: frameLight 12s linear infinite 6s;
+}
+
+.frame-light-4 {
+  animation: frameLight 12s linear infinite 9s;
+}
+
+/* Base styles */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #ffe4e6; /* rose-100 */
+  background-color: #111827; /* gray-900 */
+}
+
+/* Ensure smooth transitions for interactive elements */
+#card {
+  transition: transform 0.3s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Accessibility focus styles */
+:focus {
+  outline: 2px solid #f43f5e; /* rose-500 */
+  outline-offset: 2px;
+}
+
+/* Ensure text is readable on all backgrounds */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
